@@ -40,6 +40,8 @@ namespace WebAPIApp
 
             services.AddScoped<IStudent_Service, Student_Service>();
 
+            services.AddScoped<IUser_Service, User_Service>();
+
 
             #endregion
 
