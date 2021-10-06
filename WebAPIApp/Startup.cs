@@ -42,6 +42,10 @@ namespace WebAPIApp
 
             services.AddScoped<IUser_Service, User_Service>();
 
+            services.AddScoped<IAct_Service, Act_Service>();
+
+            services.AddScoped<IEvent_Service, Event_Service>();
+
 
             #endregion
 

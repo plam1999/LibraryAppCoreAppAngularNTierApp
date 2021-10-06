@@ -6,27 +6,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WEB_API.Models.User;
+using WEB_API.Models.Event;
 
 namespace WEB_API.Controllers
 {
     [EnableCors("angular")]
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class EventController : ControllerBase
     {
-        private IUser_Service _User_Service;
+        private IEvent_Service _Event_Service;
 
-        public UserController(IUser_Service User_Service)
+        public EventController(IEvent_Service Event_Service)
         {
-            _User_Service = User_Service;
+            _Event_Service = Event_Service;
         }
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> AddUser(string name, string account, string password, string role, string status, string hour)
+        public async Task<IActionResult> AddEvent(Int64 user_id, string user_name, string title, string start, string end, string recurrence_rule)
         {
-            var result = await _User_Service.AddUser(name, account, password, role, status, hour);
+            var result = await _Event_Service.AddEvent(user_id, user_name, title, start, end, recurrence_rule);
             switch (result.success)
             {
                 case true:
@@ -39,9 +39,9 @@ namespace WEB_API.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> GetAllUsers()
+        public async Task<IActionResult> GetAllEvents()
         {
-            var result = await _User_Service.GetAllUsers();
+            var result = await _Event_Service.GetAllEvents();
             switch (result.success)
             {
                 case true:
@@ -54,9 +54,9 @@ namespace WEB_API.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> UpdateUser(User_Pass_Object user)
+        public async Task<IActionResult> UpdateEvent(Event_Pass_Object evnt)
         {
-            var result = await _User_Service.UpdateUser(user.id, user.name, user.account, user.password, user.role, user.status, user.hour);
+            var result = await _Event_Service.UpdateEvent(evnt.id, evnt.user_id, evnt.user_name, evnt.title, evnt.start, evnt.end, evnt.recurrence_rule);
             switch (result.success)
             {
                 case true:
@@ -69,9 +69,9 @@ namespace WEB_API.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> DeleteUser(User_Pass_Object user)
+        public async Task<IActionResult> DeleteEvent(Event_Pass_Object evnt)
         {
-            var result = await _User_Service.DeleteUser(user.id);
+            var result = await _Event_Service.DeleteEvent(evnt.id);
             switch (result.success)
             {
                 case true:

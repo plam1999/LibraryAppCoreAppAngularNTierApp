@@ -13,5 +13,7 @@ namespace DAL.Entities
         public String User_Account { get; set; }
         public String User_Password { get; set; }
         public String User_Role { get; set; }
+        public String User_Status { get; set; }
+        public String User_Hour { get; set; }
     }
 }

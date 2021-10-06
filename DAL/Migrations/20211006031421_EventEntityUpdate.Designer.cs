@@ -3,14 +3,16 @@ using DAL.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20211006031421_EventEntityUpdate")]
+    partial class EventEntityUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,9 +69,6 @@ namespace DAL.Migrations
                     b.Property<long>("Event_userID")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Event_userName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("EventID");
 
                     b.ToTable("Event");
@@ -100,9 +99,6 @@ namespace DAL.Migrations
                     b.Property<string>("User_Account")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("User_Hour")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("User_Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -110,9 +106,6 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("User_Role")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("User_Status")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserID");

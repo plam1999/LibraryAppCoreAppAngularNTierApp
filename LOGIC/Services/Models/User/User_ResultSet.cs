@@ -9,6 +9,8 @@ namespace LOGIC.Services.Models.User
         public String account { get; set; }
         public String password { get; set; }
         public String role { get; set; }
+        public String status { get; set; }
+        public String hour { get; set; }
 
     }
 }

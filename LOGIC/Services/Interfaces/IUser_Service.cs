@@ -19,8 +19,8 @@ namespace LOGIC.Services.Interfaces
 
 
         /* Create/Edit/Delete methods */
-        Task<Generic_ResultSet<User_ResultSet>> AddUser(string name, string account, string password, string role);
-        Task<Generic_ResultSet<User_ResultSet>> UpdateUser(Int64 id, string name, string account, string password, string role);
+        Task<Generic_ResultSet<User_ResultSet>> AddUser(string name, string account, string password, string role, string status, string hour);
+        Task<Generic_ResultSet<User_ResultSet>> UpdateUser(Int64 id, string name, string account, string password, string role, string status, string hour);
         Task<Generic_ResultSet<bool>> DeleteUser(Int64 id);
 
     }

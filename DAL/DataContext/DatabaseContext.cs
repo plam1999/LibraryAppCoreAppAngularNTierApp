@@ -41,6 +41,8 @@ namespace DAL.DataContext
         public DbSet<Student> Students { get; set; }
 
         public DbSet<User> User { get; set; }
+        public DbSet<Act> Act { get; set; }
+        public DbSet<Event> Event { get; set; }
 
 
     }

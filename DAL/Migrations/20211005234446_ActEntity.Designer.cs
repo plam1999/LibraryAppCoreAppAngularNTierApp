@@ -3,14 +3,16 @@ using DAL.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20211005234446_ActEntity")]
+    partial class ActEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,36 +47,6 @@ namespace DAL.Migrations
                     b.ToTable("Act");
                 });
 
-            modelBuilder.Entity("DAL.Entities.Event", b =>
-                {
-                    b.Property<long>("EventID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Event_End")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Event_RecurrenceRule")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Event_Start")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Event_Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("Event_userID")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Event_userName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("EventID");
-
-                    b.ToTable("Event");
-                });
-
             modelBuilder.Entity("DAL.Entities.Student", b =>
                 {
                     b.Property<long>("StudentID")
@@ -100,9 +72,6 @@ namespace DAL.Migrations
                     b.Property<string>("User_Account")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("User_Hour")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("User_Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -110,9 +79,6 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("User_Role")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("User_Status")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserID");

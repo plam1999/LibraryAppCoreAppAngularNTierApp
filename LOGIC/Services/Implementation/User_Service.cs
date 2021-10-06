@@ -39,7 +39,9 @@ namespace LOGIC.Services.Implementation
                         name = s.User_Name,
                         account = s.User_Account,
                         password = s.User_Password,
-                        role = s.User_Role
+                        role = s.User_Role,
+                        status = s.User_Status,
+                        hour = s.User_Hour
                     });
                 });
 
@@ -75,7 +77,9 @@ namespace LOGIC.Services.Implementation
                     user_id = User.UserID,
                     account = User.User_Account,
                     password = User.User_Password,
-                    role = User.User_Role
+                    role = User.User_Role,
+                    status = User.User_Status,
+                    hour = User.User_Hour
                 };
 
                 //SET SUCCESSFUL RESULT VALUES
@@ -100,7 +104,7 @@ namespace LOGIC.Services.Implementation
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public async Task<Generic_ResultSet<User_ResultSet>> AddUser(string name, string account, string password, string role)
+        public async Task<Generic_ResultSet<User_ResultSet>> AddUser(string name, string account, string password, string role, string status, string hour)
         {
             Generic_ResultSet<User_ResultSet> result = new Generic_ResultSet<User_ResultSet>();
             try
@@ -111,7 +115,9 @@ namespace LOGIC.Services.Implementation
                     User_Name = name,
                     User_Account = account,
                     User_Password = password,
-                    User_Role = role
+                    User_Role = role,
+                    User_Status = status,
+                    User_Hour = hour
                 };
 
                 //ADD User TO DB
@@ -124,7 +130,9 @@ namespace LOGIC.Services.Implementation
                     user_id = User.UserID,
                     account = User.User_Account,
                     password = User.User_Password,
-                    role = User.User_Role
+                    role = User.User_Role,
+                    status = User.User_Status,
+                    hour = User.User_Hour
                 };
 
                 //SET SUCCESSFUL RESULT VALUES
@@ -150,7 +158,7 @@ namespace LOGIC.Services.Implementation
         /// <param name="user_id"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public async Task<Generic_ResultSet<User_ResultSet>> UpdateUser(Int64 user_id, string name, string account, string password, string role)
+        public async Task<Generic_ResultSet<User_ResultSet>> UpdateUser(Int64 user_id, string name, string account, string password, string role, string status, string hour)
         {
             Generic_ResultSet<User_ResultSet> result = new Generic_ResultSet<User_ResultSet>();
             try
@@ -162,7 +170,9 @@ namespace LOGIC.Services.Implementation
                     User_Name = name,
                     User_Account = account,
                     User_Password = password,
-                    User_Role = role
+                    User_Role = role,
+                    User_Status = status,
+                    User_Hour = hour
                     //User_ModifiedDate = DateTime.UtcNow 
                 };
 
@@ -176,7 +186,9 @@ namespace LOGIC.Services.Implementation
                     user_id = User.UserID,
                     account = User.User_Account,
                     password = User.User_Password,
-                    role = User.User_Role
+                    role = User.User_Role,
+                    status = User.User_Status,
+                    hour = User.User_Hour
                 };
 
                 //SET SUCCESSFUL RESULT VALUES
